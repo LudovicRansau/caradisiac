@@ -19,7 +19,7 @@ async function getModel(string){
 
 var liste=[];
 
-let brands = getBrand();/*
+let brands = getBrand();
     brands.then(function(result)
     {
         for (var i = 0; i < result.length; i++) {
@@ -40,7 +40,7 @@ let brands = getBrand();/*
 app.listen(9292, () => {
     console.log("Bienvenue sur le port 9292 !");
 });
-/*
+
 //We make the root populate
 app.get('/populate',function(req,res){
 
@@ -53,7 +53,8 @@ app.get('/populate',function(req,res){
     });
 
     var body = [];
-    for (var i = 0; i < liste_caradisiac.length; i++ ) {
+    for(var i=0; i<liste_caradisiac.length; i++)
+    {
         var config = { index:  { _index: 'liste_caradisiac', _type: 'suv', _id: i } };
         body.push(config);
         body.push(liste_caradisiac[i]);
@@ -73,7 +74,7 @@ app.get('/populate',function(req,res){
     res.send("elasticsearch");
 })
 
-/*
+
 app.get('/suv', function(req,res){
 
     var file = "./liste_caradisiac.json";
@@ -95,15 +96,14 @@ app.get('/suv', function(req,res){
         }
     },function (error, response,status) {
         if (error){
-            console.log("search error: "+error)
+            console.log("Error: "+error)
         }
         else {
-            console.log("--- Response ---");
+            console.log("Response\n");
             console.log(response);
-            console.log("--- Hits ---");
+            console.log("Hits");
             res.send(response.hits.hits);
         }
     });
 
 })
-*/
